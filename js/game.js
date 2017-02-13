@@ -1,6 +1,7 @@
 let numberOfFaces  = 5;
 let theLeftSide  = document.getElementById("leftSide");
 let theRightSide  = document.getElementById("rightSide");
+let count = 0;
 
 function generateFaces() {
 	for (i = 0; i < numberOfFaces; i++) {
@@ -26,13 +27,14 @@ function generateFaces() {
 			theRightSide.removeChild(theRightSide.firstChild);
 		}
         numberOfFaces += 5;
+        count++;
         generateFaces();
 	};
 
 	theLeftSide.lastChild.onclick = clickedFace;
 
 	let clickBody = function gameOver() {
-	   	alert("Game Over! Sorry You Lost.");
+	   	alert("Game Over! Sorry You Lost.\n\n Your score is " + count + " smileys.");
 	    theBody.onclick = null;
 	    theLeftSide.lastChild.onclick = null;
 	};
